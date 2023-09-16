@@ -1,2 +1,2 @@
 # github-comandos-principais
-Principais comandos GitHub
+Principais comandos Git e GitHub
