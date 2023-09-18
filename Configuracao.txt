@@ -1,0 +1,35 @@
+#Configurando o ambiente do usuario apos baixar o Git
+
+→  Configurando seu Nome:
+$git config -- global user.name “SeuNome”  
+→  Configurando seu E-mail:
+$git config -- global user.email “SeuEmail@email.com” 
+
+
+-> Token e chave ssh
+→ chave temporária
+$git config credential.helper cache  
+
+→ pc de uso pessoal e sozinho
+$git config credential.helper store  
+$git config --global credential.helper store
+→ pasta onde está salvo as credenciais:
+$git config --global --show-origin credential.helper store  
+→ mostra o que está configurado
+$cat .gitconfig  
+
+→ gera chave ssh
+ssh.keygen -t ed25519 -C “SeuEmail@email.com”
+
+-> Pra guardar a chave de forma segura
+eval “$(ssh-agent -s)” 
+ssh -add ~/.ssh/id_ed25519
+cd ~/.ssh 
+
+→ lista o que tem nessa pasta .ssh
+ls 
+
+→ mostra a chave publica
+cat id_ed25519.pub  
+(pegar isso que apareceu e colocar lá no github pra 
+autenticar a chave ssh pública)

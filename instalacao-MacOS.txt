@@ -1,0 +1,70 @@
+Instalando o Git no sistema operacional do MacBook
+
+
+-> Xcode
+Abra a App Store, na parte de pesquisa digite “Xcode”. Clique em instalar.
+
+
+-> MacPorts
+Apos a instalação agora precisamos instalar o MacPorts, mas para isto, vá no seu navegador de preferencia, usaremos o Safari, copie e cole o site.https://github.com/macports/macports-base/releases/tag/v2.8.1
+Nesta pagina procure pela nome e versão instalado no seu Mac, faz a instalação do arquivo Ex: MacPorts-2.8.1-13-Venture.pkg.
+Apos a instalação vamos ter abri o Terminal, com as teclas Command e espaço, digite “terminal”.
+
+
+-> Terminal
+$ sudo port install git
+O terminal perguntará se você quer continuar digite “Y” de Enter.
+
+$ git --version
+Verifica a instalação do git e retorna a versão instalada.
+
+$ echo "Ola mundo" | openssl sha1
+chave de 40 caracteres ex: “4b654770d7fa11fff8228be7265961b3979154c8”.
+
+
+-> Pasta Destino para o Git
+$ ls
+Visualizar as pastas.
+
+$ mkdir workspace
+Cria a pasta workspace
+
+$ ls
+Para visualizar a pasta criada
+
+
+-> Criando chave ssh e Token
+$ ssh-keygen -t ed25519 -C (“SeuEmail@email.com)
+Aparecera uma mensagem, de um “Enter” para continuar usando o endereço que será exibido no final da execução, copie esta endereço, pois teremos que abrir a pasta “/.ssh/”.
+Use o comando “cd” para abrir com o endereço copiado.
+$ cd /Users/NOME_SEU_USUARIO/.ssh/
+
+$ ls
+(listar as chaves)
+
+$ cat id_ed25519.pub 
+para visualizar a que está dentro da chave publica(.pub).
+
+Copia o código gerado, para usar no GitHub.
+Abrindo o site GitHub, na aba “Configurações”, procure por Chaves SSH e GPG, clique nela.
+Estando na pagina das “Chaves SSH e GPG, clique em “Nova chave SSH”.
+No campo “Titulo” escreva um titulo pessoal da maquina por exemplo.
+No campo “Tipo de chave” deixe como “Chave de Autenticação”.
+No campo “Chave” cole o código copiado anteriormente.
+Apos todo esta processo clique em “Adiciona chave SSH”.
+Pronto uma primeira parte foi feita.
+
+Voltar no terminal e usar os seguintes comandos:
+$ ls
+(listar as chaves)
+
+$ eval $(ssh-agent -s)
+$ ssh-add id_ed25519
+
+Agora o git já está em conjunto com o GitHub, você pode clonar ou enviar arquivos para o GitHub.
+
+
+-> Referencia:
+https://git-scm.com/download/mac
+https://marp.app/
+https://www.macports.org/

@@ -1,0 +1,127 @@
+# Criando sua pasta e fazendo dela um repositorio
+
+→ criar pasta
+$ mkdir nomeDaPasta 
+
+→ entrar na pasta
+$ cd nomedapasta  
+
+→ iniciar repositório na pasta
+$ git init 
+
+→ entra e mostra os arquivos q tem dentro dessa pasta nova de repositório 
+$ cd .git 
+
+→ mostra as coisas dentro da pasta de configuração desse repositório
+$ cat config  
+
+→ voltar para a pasta inicial
+$ cd 
+
+→ entrar de novo na pasta criada pra trabalhar nela
+$ cd nomedapasta 
+
+→ clonar repositorio do github no meu pc
+$ git clone url  
+
+→ clonar repositorio com nome de pasta q eu quero e não com o mesmo nome de pasta do repositorio do github
+$ git clone url nomenovodapasta 
+
+→ adicionar um origin para o repositório se não existe nenhum
+$ git remote add origin url 
+
+→ status da pasta q eu clonei
+$ git status 
+
+
+
+# Adicionando coisas na pasta que eu criei
+
+→ criar um arquivo readme na pasta
+$ touch README.md 
+
+→ adiciono o arquivo na zona de transferencia 
+$ git add README.md 
+
+→ vejo o status dos meus arquivos
+$ git status 
+
+→ depois de add todas as mudanças, commito as mudanças 
+$ git commit -m”mensagem do commit”
+
+→ conferencia se commitou
+$ git status 
+
+→ vejo os commits feitos
+$ git log
+
+→ Se não quero que uma coisa apareça no meu commit:
+$ echo coisaQEuNQueroQApareca / > .gitignore
+
+→ checando as mudanças no gitignore
+$ git status 
+
+→ apagar as paradas que botei la, ai dou git status e ta la na untracked files
+$ echo > .gitignore 
+
+→ Adicionar todos os arquivos mexidos de uma vez 
+$ git add .
+
+
+
+# Pro Git reconhecer um diretório vazio
+
+→ o git vai fazer o pull pq não tá mais vazio
+qualquercoisa.gitkeep 
+
+
+
+# Desfazendo alterações no Git
+
+-> dei git init na pasta errada:
+→ vai deletar o repo iniciado
+$ rm -rf .git  
+
+
+-> restaurar alterações que fiz sem querer:
+$ git restore nomeDoArquivo
+
+
+-> alterar mensagem do commit: 
+$ git commit --amend -m”mensagem nova”
+→ abre o editor:
+$ git commit --amend
+$ i "mensagem"
+→ sair do editor:
+$ esc:w  
+
+
+-> Pra desfazer um commit:
+$ git reset 
+
+    - SOFT
+    → some o commit e os arquivos criados e commitados ficam como novos arquivos na arvore 
+$ git reset --soft hashDoCommitQQueroVoltar
+
+    - MIXED
+    → ele volta os arquivos commitados pra area de untracked files
+$ git reset --mixed hashDoUltimoCommit
+
+    - HARD
+    → ele ignora tudo q foi feito e commitado apos o commit que eu quero voltar, deleta tudo e limpa a arvore, restaurando a versao inicial 
+$ git reset --hard hashDoCommitQQueroVoltar
+
+    - caso eu queria so remover algo que add sem querer
+$ git reset nomeDoArquivoASerRemovido
+
+→ por ex, to com varios arquivos e add todos, quero tirar algum, uso esse comando pra tirar e jogar p untracked de novo
+$ git restore --staged nomeDoArquivoASerRemovido
+
+
+-> Historico completo e detalhado de commits
+$ git reflog 
+
+
+# Push/Pull 
+
+
